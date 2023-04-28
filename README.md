@@ -1,2 +1,2 @@
-# rpg-party-portraits
-This repo contains a character/companion(s) portrait system used in most of the role playing games like divinity original sin, pathfinder, pillars of eternity , wasteland and many more.
+# RPG - Portraits
+A portrait system that is used in many roleplay party based games like **Divinity Original Sin** series and **Neverwinter Nights**.
