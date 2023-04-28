@@ -1,0 +1,16 @@
+{
+    "name": "RpgPortraits.Ui",
+    "rootNamespace": "",
+    "references": [
+        "GUID:cd82dd70545590b44ac0a48cbce130ac"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
