@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 393837774}
-  - component: {fileID: 393837775}
+  - component: {fileID: 4556575905398234150}
   m_Layer: 5
   m_Name: Portraits
   m_TagString: Untagged
@@ -35,9 +35,9 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 10, y: -100}
-  m_SizeDelta: {x: 200, y: 800}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &393837775
+--- !u!114 &4556575905398234150
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,23 +46,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 393837773}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Script: {fileID: 11500000, guid: fb85344a9873ad444b2b7a3d09de18bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 10
-    m_Bottom: 10
-  m_ChildAlignment: 1
-  m_Spacing: 10
-  m_ChildForceExpandWidth: 0
-  m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
+  offsetFromLeft: 20
+  spacingOffset: 5
+  portraitsListing: {fileID: 11400000, guid: 6c2ba7035f92089459ddb9160bb08f1f, type: 2}
 --- !u!1 &4907664789787371688
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,6 +63,7 @@ GameObject:
   - component: {fileID: 7079919294839715054}
   - component: {fileID: 8638367416155087257}
   - component: {fileID: 8824459551436939537}
+  - component: {fileID: 7413212339684920896}
   m_Layer: 5
   m_Name: GameScreen
   m_TagString: Untagged
@@ -123,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -140,6 +130,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7413212339684920896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4907664789787371688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe148d418df4464d9c8a10926026109a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portraitPrefab: {fileID: 611916816444228095, guid: d1eed256a3de9244da2188cbdadbcb68, type: 3}
+  content: {fileID: 393837774}
+  portraitsListing: {fileID: 11400000, guid: 6c2ba7035f92089459ddb9160bb08f1f, type: 2}
 --- !u!1 &7413212341053094430
 GameObject:
   m_ObjectHideFlags: 0

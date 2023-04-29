@@ -9,28 +9,24 @@ namespace RpgPortraits.Ui.Portrait
     [RequireComponent(typeof(Image))]
     public class DraggablePortrait : DraggableUi, IEndDragHandler, IBeginDragHandler
     {
-        [SerializeField] private RectTransform holderRectTransform;
-
-        private RectTransform _rectTransform;
-        private Image _image;
+        [SerializeField] private Image characterPortraitImage;
         
-        private void Awake()
+        private Vector3 _fallBackPosition;
+        internal void Init(Sprite sprite, Vector3 positionOnUi)
         {
-            _image = GetComponent<Image>();
-            _rectTransform = GetComponent<RectTransform>();
-        }
-
-        internal void Init(Sprite sprite)
-        {
-            _image.sprite = sprite;
+            characterPortraitImage.sprite = sprite;
+            _fallBackPosition = positionOnUi;
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            _rectTransform.DOMove(holderRectTransform.position, 0.5f)
+            RectTransform.DOMove(_fallBackPosition, 0.5f)
                 .SetEase(Ease.InOutQuad);
         }
 
-        public void OnBeginDrag(PointerEventData eventData) { }
+        public void OnBeginDrag(PointerEventData eventData)
+        {
+            RectTransform.SetAsLastSibling();
+        }
     }
 }
