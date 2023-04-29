@@ -1,9 +1,10 @@
 using DG.Tweening;
+using RpgPortraits.Ui.Utils;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace RpgPortraits.Ui
+namespace RpgPortraits.Ui.Portrait
 {
     [RequireComponent(typeof(Image))]
     public class DraggablePortrait : DraggableUi, IEndDragHandler, IBeginDragHandler

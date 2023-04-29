@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using RpgPortraits.ScriptableObjects;
+using RpgPortraits.Ui.Portrait;
 using UnityEngine;
 
-namespace RpgPortraits.Ui
+namespace RpgPortraits.Ui.Screen
 {
     public class GameScreen : MonoBehaviour
     {
@@ -10,7 +10,7 @@ namespace RpgPortraits.Ui
         [SerializeField] private Transform content;
 
         [Header("Portraits To Populate")] 
-        [SerializeField] private PortraitsListing portraitsListing;
+        [SerializeField] private PortraitListing portraitsListing;
 
         private List<DraggablePortrait> _portraits;
 

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace RpgPortraits.Ui
+namespace RpgPortraits.Ui.Utils
 {
     public class DraggableUi : MonoBehaviour, IDragHandler
     {
