@@ -1,4 +1,4 @@
-using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,26 +9,14 @@ namespace RpgPortraits.Ui
     public class DraggablePortrait : DraggableUi, IEndDragHandler, IBeginDragHandler
     {
         [SerializeField] private RectTransform holderRectTransform;
-        [SerializeField] private float fallbackDampingSpeed;
 
         private RectTransform _rectTransform;
         private Image _image;
-        private Vector3 _fallBackVelocity = Vector3.zero;
-        private bool _fallBackToHolder;
-
-
+        
         private void Awake()
         {
             _image = GetComponent<Image>();
             _rectTransform = GetComponent<RectTransform>();
-        }
-
-        private void Update()
-        {
-            if (_fallBackToHolder)
-            {
-                _rectTransform.position = Vector3.SmoothDamp(_rectTransform.position, holderRectTransform.position, ref _fallBackVelocity, fallbackDampingSpeed);
-            }
         }
 
         internal void Init(Sprite sprite)
@@ -38,12 +26,10 @@ namespace RpgPortraits.Ui
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            _fallBackToHolder = true;
+            _rectTransform.DOMove(holderRectTransform.position, 0.5f)
+                .SetEase(Ease.InOutQuad);
         }
 
-        public void OnBeginDrag(PointerEventData eventData)
-        {
-            _fallBackToHolder = false;
-        }
+        public void OnBeginDrag(PointerEventData eventData) { }
     }
 }
