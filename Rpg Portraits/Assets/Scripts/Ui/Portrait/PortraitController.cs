@@ -1,19 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using RpgPortraits.Utility;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace RpgPortraits.Ui.Portrait
 {
     public class PortraitController : MonoBehaviour
     {
-        [Header("Portrait Settings")] [SerializeField]
-        private float offsetFromLeft;
-
-        [SerializeField] private float spacingOffset;
-
         [Header("Portraits Setting")] [SerializeField]
         private PortraitDockLocation dockLocation;
 
@@ -67,11 +60,11 @@ namespace RpgPortraits.Ui.Portrait
                     throw new ArgumentOutOfRangeException();
             }
 
-            Vector3 newPosition = _rectTransform.position;
-            newPosition.x += _currentDockConfiguration.HorizontalDockOffset;
-            newPosition.y += _currentDockConfiguration.VerticalDockOffset;
+            Vector3 dockPosition = _rectTransform.position;
+            dockPosition.x += _currentDockConfiguration.HorizontalDockOffset;
+            dockPosition.y += _currentDockConfiguration.VerticalDockOffset;
 
-            _rectTransform.position = newPosition;
+            _rectTransform.position = dockPosition;
         }
 
         private void CreatePortraits()
@@ -88,11 +81,11 @@ namespace RpgPortraits.Ui.Portrait
                 GameObject portraitObject = Instantiate(portraitPrefab.gameObject, transform);
                 portraitObject.name = (i + 1).ToString();
 
-                SetupPortraitAndAdjustPosition(portraitObject, i);
+                SetupPortraitsAndAdjustPositions(portraitObject, i);
             }
         }
 
-        private void SetupPortraitAndAdjustPosition(GameObject portraitObject, int portraitIndex)
+        private void SetupPortraitsAndAdjustPositions(GameObject portraitObject, int portraitIndex)
         {
             RectTransform portraitRectTransform = portraitObject.GetComponent<RectTransform>();
 

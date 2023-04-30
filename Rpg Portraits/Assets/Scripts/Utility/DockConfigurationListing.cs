@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace RpgPortraits.Utility
 {
@@ -23,7 +22,7 @@ namespace RpgPortraits.Utility
         [Tooltip("Vertical offset applied relative to anchor.")]
         public float VerticalDockOffset;
         
-        [Tooltip("Spacing between consecutive portraits")]
+        [Tooltip("Spacing between consecutive portraits. In case of left/right docing this will be applied vertically and for bottom, horzintally.")]
         public float SpacingBetweenPortraits;
 
     }

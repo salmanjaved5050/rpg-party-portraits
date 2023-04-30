@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -6,25 +5,20 @@ namespace RpgPortraits.Ui.Utils
 {
     public class DraggableUi : MonoBehaviour, IDragHandler
     {
-        [SerializeField] private float dragDampingSpeed;
-        
-        private Vector3 _resultPosition;
-        private Vector3 _dragVelocity = Vector3.zero;
-        
         protected RectTransform RectTransform;
 
-        private void Start()
+        private Vector3 _resultPosition;
+        private Canvas _canvas;
+        private void Awake()
         {
             RectTransform = GetComponent<RectTransform>();
+            _canvas = transform.root.GetComponent<Canvas>();
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            if (RectTransformUtility.ScreenPointToWorldPointInRectangle(RectTransform, eventData.position, eventData.pressEventCamera,
-                    out _resultPosition))
-            {
-                RectTransform.position = Vector3.SmoothDamp(RectTransform.position, _resultPosition, ref _dragVelocity, dragDampingSpeed);
-            }
+            RectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
+            Debug.LogError(RectTransform.anchoredPosition);
         }
     }
 }
