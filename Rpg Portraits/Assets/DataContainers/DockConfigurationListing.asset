@@ -14,29 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Configurations:
   - PortraitDockLocation: 0
-    HorizontalDockAdjustment:
-      OffsetType: 0
-      OffsetDirection: 0
-      OffsetValue: 0
-    VerticalDockAdjustment:
-      OffsetType: 1
-      OffsetDirection: 1
-      OffsetValue: 5
+    HorizontalDockOffset: 50
+    VerticalDockOffset: -130
+    SpacingBetweenPortraits: 5
   - PortraitDockLocation: 1
-    HorizontalDockAdjustment:
-      OffsetType: 0
-      OffsetDirection: 0
-      OffsetValue: -20
-    VerticalDockAdjustment:
-      OffsetType: 1
-      OffsetDirection: 1
-      OffsetValue: 5
+    HorizontalDockOffset: -50
+    VerticalDockOffset: -130
+    SpacingBetweenPortraits: 5
   - PortraitDockLocation: 2
-    HorizontalDockAdjustment:
-      OffsetType: 1
-      OffsetDirection: 0
-      OffsetValue: 5
-    VerticalDockAdjustment:
-      OffsetType: 0
-      OffsetDirection: 1
-      OffsetValue: 20
+    HorizontalDockOffset: 0
+    VerticalDockOffset: 50
+    SpacingBetweenPortraits: 5

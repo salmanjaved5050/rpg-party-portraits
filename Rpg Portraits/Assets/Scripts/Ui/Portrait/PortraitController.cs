@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using RpgPortraits.Utility;
@@ -12,27 +13,62 @@ namespace RpgPortraits.Ui.Portrait
 
         [SerializeField] private float spacingOffset;
 
-        [Header("Portraits Setting")] [SerializeField]
-        private GameObject portraitPrefab;
-
-        [SerializeField] private PortraitListing portraitsListing;
+        [Header("Portraits Setting")]
         [SerializeField] private PortraitDockLocation portraitDockLocation;
+        [SerializeField] private GameObject portraitPrefab;
+        [SerializeField] private PortraitListing portraitsListing;
         [SerializeField] private DockConfigurationListing DockConfigurationListing;
 
         private List<DraggablePortrait> _portraits;
         private Vector2 _portraitSize;
-        private PortraitDockConfiguration _portraitDockConfiguration;
+        private PortraitDockConfiguration _currentDockConfiguration;
+        private RectTransform _rectTransform;
 
         private const int MAX_PORTRAITS_COUNT = 4;
+
+        private void Awake()
+        {
+            _rectTransform = GetComponent<RectTransform>();
+        }
 
         private void Start()
         {
             _portraits = new List<DraggablePortrait>();
             _portraitSize = portraitPrefab.GetComponent<RectTransform>()
                 .rect.size;
-            _portraitDockConfiguration = DockConfigurationListing.Configurations.Find(config => config.PortraitDockLocation == portraitDockLocation);
-            
-            CreatePortraits();
+            _currentDockConfiguration = DockConfigurationListing.Configurations.Find(config => config.PortraitDockLocation == portraitDockLocation);
+
+            DockPortraitPanel();
+        }
+
+        private void DockPortraitPanel()
+        {
+            switch (portraitDockLocation)
+            {
+                case PortraitDockLocation.Left:
+                    _rectTransform.pivot = new Vector2(0, 1);
+                    _rectTransform.anchorMin = new Vector2(0, 1);
+                    _rectTransform.anchorMax = new Vector2(0, 1);
+                    break;
+                case PortraitDockLocation.Right:
+                    _rectTransform.pivot = new Vector2(1, 1);
+                    _rectTransform.anchorMin = new Vector2(1, 1);
+                    _rectTransform.anchorMax = new Vector2(1, 1);
+                    break;
+                case PortraitDockLocation.Bottom:
+                    _rectTransform.pivot = new Vector2(0.5f, 0);
+                    _rectTransform.anchorMin = new Vector2(0.5f, 0);
+                    _rectTransform.anchorMax = new Vector2(0.5f, 0);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            Vector3 newPosition = _rectTransform.position;
+            newPosition.x += _currentDockConfiguration.HorizontalDockOffset;
+            newPosition.y += _currentDockConfiguration.VerticalDockOffset;
+
+            _rectTransform.position = newPosition;
         }
 
         private void CreatePortraits()
@@ -57,6 +93,7 @@ namespace RpgPortraits.Ui.Portrait
         {
             RectTransform portraitRectTransform = portraitObject.GetComponent<RectTransform>();
 
+
             Vector3 newPosition = portraitRectTransform.position;
             newPosition.x += offsetFromLeft;
             newPosition.y -= portraitIndex * (_portraitSize.y + spacingOffset);
@@ -67,6 +104,21 @@ namespace RpgPortraits.Ui.Portrait
             draggablePortrait.Init(portraitsListing.CharacterPortraits[portraitIndex]
                 .Sprite, newPosition);
             _portraits.Add(draggablePortrait);
+        }
+
+        private void PositionPortrait(RectTransform rectTransform, int index)
+        {
+            switch (portraitDockLocation)
+            {
+                case PortraitDockLocation.Left:
+                    break;
+                case PortraitDockLocation.Right:
+                    break;
+                case PortraitDockLocation.Bottom:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
     }
 }

@@ -15,22 +15,17 @@ namespace RpgPortraits.Utility
     [Serializable]
     public class PortraitDockConfiguration
     {
-        [Tooltip("Location of portraits panel on canvas. It can be on left,right or bottom of the screen.")]
         public PortraitDockLocation PortraitDockLocation;
         
-        [Tooltip("Applies adjustment to portraits horzintally i.e. for left, add offset of 2 and for right subtract offset of 20.")]
-        public DockAdjustment HorizontalDockAdjustment;
+        [Tooltip("Horizontal offset applied relative to anchor.")]
+        public float HorizontalDockOffset;
         
-        [Tooltip("Applies adjustment to portraits vertically i.e. for bottom subtract offset of 20.")]
-        public DockAdjustment VerticalDockAdjustment;
-    }
+        [Tooltip("Vertical offset applied relative to anchor.")]
+        public float VerticalDockOffset;
+        
+        [Tooltip("Spacing between consecutive portraits")]
+        public float SpacingBetweenPortraits;
 
-    [Serializable]
-    public class DockAdjustment
-    {
-        public OffsetType OffsetType;
-        public OffsetDirection OffsetDirection;
-        public float OffsetValue;
     }
 
     public enum PortraitDockLocation
@@ -38,20 +33,5 @@ namespace RpgPortraits.Utility
         Left,
         Right,
         Bottom
-    }
-
-    public enum OffsetDirection
-    {
-        X,
-        Y
-    }
-
-    public enum OffsetType
-    {
-        [Tooltip("Absolute means we just add the offset value according to the direction i.e. subtract/add offset from left, right or bottom.")]
-        Absolute,
-        
-        [Tooltip("Calculated means we calculate offset for individual portraits in direction and then add the value provided.")]
-        Calculated,
     }
 }

@@ -90,8 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec96b32d9e3f7034aa085669cd997329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragDampingSpeed: 0.02
-  rectTransform: {fileID: 0}
+  dragDampingSpeed: 0.01
   characterPortraitImage: {fileID: 3302887117149330179}
 --- !u!1 &6050121307431779027
 GameObject:
