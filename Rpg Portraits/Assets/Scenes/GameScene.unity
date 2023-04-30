@@ -393,6 +393,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4556575905398234150, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}
+      propertyPath: dockLocation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556575905398234150, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}
       propertyPath: spacingOffset
       value: 10
       objectReference: {fileID: 0}
@@ -402,7 +406,7 @@ PrefabInstance:
       objectReference: {fileID: 611916816444228095, guid: d1eed256a3de9244da2188cbdadbcb68, type: 3}
     - target: {fileID: 4556575905398234150, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}
       propertyPath: portraitDockLocation
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4556575905398234150, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}
       propertyPath: DockConfigurationListing

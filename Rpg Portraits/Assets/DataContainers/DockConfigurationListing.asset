@@ -16,12 +16,12 @@ MonoBehaviour:
   - PortraitDockLocation: 0
     HorizontalDockOffset: 50
     VerticalDockOffset: -130
-    SpacingBetweenPortraits: 5
+    SpacingBetweenPortraits: 10
   - PortraitDockLocation: 1
     HorizontalDockOffset: -50
     VerticalDockOffset: -130
-    SpacingBetweenPortraits: 5
+    SpacingBetweenPortraits: 10
   - PortraitDockLocation: 2
-    HorizontalDockOffset: 0
+    HorizontalDockOffset: -200
     VerticalDockOffset: 50
-    SpacingBetweenPortraits: 5
+    SpacingBetweenPortraits: 10

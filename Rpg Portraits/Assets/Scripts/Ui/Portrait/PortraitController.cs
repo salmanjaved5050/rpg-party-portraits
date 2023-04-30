@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using RpgPortraits.Utility;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace RpgPortraits.Ui.Portrait
 {
@@ -13,8 +14,9 @@ namespace RpgPortraits.Ui.Portrait
 
         [SerializeField] private float spacingOffset;
 
-        [Header("Portraits Setting")]
-        [SerializeField] private PortraitDockLocation portraitDockLocation;
+        [Header("Portraits Setting")] [SerializeField]
+        private PortraitDockLocation dockLocation;
+
         [SerializeField] private GameObject portraitPrefab;
         [SerializeField] private PortraitListing portraitsListing;
         [SerializeField] private DockConfigurationListing DockConfigurationListing;
@@ -36,14 +38,15 @@ namespace RpgPortraits.Ui.Portrait
             _portraits = new List<DraggablePortrait>();
             _portraitSize = portraitPrefab.GetComponent<RectTransform>()
                 .rect.size;
-            _currentDockConfiguration = DockConfigurationListing.Configurations.Find(config => config.PortraitDockLocation == portraitDockLocation);
+            _currentDockConfiguration = DockConfigurationListing.Configurations.Find(config => config.PortraitDockLocation == dockLocation);
 
             DockPortraitPanel();
+            CreatePortraits();
         }
 
         private void DockPortraitPanel()
         {
-            switch (portraitDockLocation)
+            switch (dockLocation)
             {
                 case PortraitDockLocation.Left:
                     _rectTransform.pivot = new Vector2(0, 1);
@@ -93,32 +96,33 @@ namespace RpgPortraits.Ui.Portrait
         {
             RectTransform portraitRectTransform = portraitObject.GetComponent<RectTransform>();
 
+            Vector3 portraitPosition = GetDockedPortraitPosition(portraitRectTransform, portraitIndex);
 
-            Vector3 newPosition = portraitRectTransform.position;
-            newPosition.x += offsetFromLeft;
-            newPosition.y -= portraitIndex * (_portraitSize.y + spacingOffset);
-
-            portraitRectTransform.position = newPosition;
+            portraitRectTransform.position = portraitPosition;
 
             DraggablePortrait draggablePortrait = portraitObject.GetComponent<DraggablePortrait>();
             draggablePortrait.Init(portraitsListing.CharacterPortraits[portraitIndex]
-                .Sprite, newPosition);
+                .Sprite, portraitPosition);
             _portraits.Add(draggablePortrait);
         }
 
-        private void PositionPortrait(RectTransform rectTransform, int index)
+        private Vector3 GetDockedPortraitPosition(RectTransform rectTransform, int portraitIndex)
         {
-            switch (portraitDockLocation)
+            Vector3 position = rectTransform.position;
+            switch (dockLocation)
             {
                 case PortraitDockLocation.Left:
-                    break;
                 case PortraitDockLocation.Right:
+                    position.y -= portraitIndex * (_portraitSize.y + _currentDockConfiguration.SpacingBetweenPortraits);
                     break;
                 case PortraitDockLocation.Bottom:
+                    position.x += portraitIndex * (_portraitSize.x + _currentDockConfiguration.SpacingBetweenPortraits);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+
+            return position;
         }
     }
 }
