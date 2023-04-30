@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace RpgPortraits
+namespace RpgPortraits.Ui
 {
     [Serializable]
     public class CharacterPortrait

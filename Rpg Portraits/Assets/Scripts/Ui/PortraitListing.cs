@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RpgPortraits
+namespace RpgPortraits.Ui
 {
     [CreateAssetMenu(fileName = "PortraitListing",menuName = "RpgPortraits/PortraitListing")]
     public class PortraitListing : ScriptableObject

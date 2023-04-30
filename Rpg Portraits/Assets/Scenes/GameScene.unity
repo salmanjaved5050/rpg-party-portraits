@@ -388,6 +388,10 @@ PrefabInstance:
       propertyPath: portraitPrefab
       value: 
       objectReference: {fileID: 611916816444228095, guid: d1eed256a3de9244da2188cbdadbcb68, type: 3}
+    - target: {fileID: 4556575905398234150, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}
+      propertyPath: DockConfigurationListing
+      value: 
+      objectReference: {fileID: 11400000, guid: 48351075c4a350a43bf54ed8e9150bbe, type: 2}
     - target: {fileID: 7413212341053094426, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}
       propertyPath: m_Pivot.x
       value: 0
