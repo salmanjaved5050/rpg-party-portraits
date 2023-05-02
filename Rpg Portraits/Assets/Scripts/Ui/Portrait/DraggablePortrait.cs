@@ -8,6 +8,8 @@ namespace RpgPortraits.Ui.Portrait
 {
     public class DraggablePortrait : DraggableUi, IPointerDownHandler, IPointerUpHandler
     {
+        [SerializeField] private Image portraitImage;
+        
         [Tooltip("Tween duration when portrait gets back to initial position or switches to a new position.")] [SerializeField]
         private float tweenBackToOriginalPositionDuration;
 
@@ -15,12 +17,10 @@ namespace RpgPortraits.Ui.Portrait
         [SerializeField] private float tweenBackToOriginalScaleDuration;
 
         private Vector3 _fallBackPosition;
-        private Image _portraitImage;
 
         internal void Init(Sprite sprite, Vector3 positionOnUi)
         {
-            _portraitImage = GetComponentInChildren<Image>();
-            _portraitImage.sprite = sprite;
+            portraitImage.sprite = sprite;
             _fallBackPosition = positionOnUi;
         }
 

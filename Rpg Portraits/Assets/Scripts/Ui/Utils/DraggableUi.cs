@@ -18,7 +18,6 @@ namespace RpgPortraits.Ui.Utils
         public void OnDrag(PointerEventData eventData)
         {
             RectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
-            Debug.LogError(RectTransform.anchoredPosition);
         }
     }
 }

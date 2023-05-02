@@ -51,6 +51,11 @@ namespace RpgPortraits.Ui.Portrait
                     _rectTransform.anchorMin = new Vector2(1, 1);
                     _rectTransform.anchorMax = new Vector2(1, 1);
                     break;
+                case PortraitDockLocation.Top:
+                    _rectTransform.pivot = new Vector2(0.5f, 1);
+                    _rectTransform.anchorMin = new Vector2(0.5f, 1);
+                    _rectTransform.anchorMax = new Vector2(0.5f, 1);
+                    break;
                 case PortraitDockLocation.Bottom:
                     _rectTransform.pivot = new Vector2(0.5f, 0);
                     _rectTransform.anchorMin = new Vector2(0.5f, 0);
@@ -108,6 +113,7 @@ namespace RpgPortraits.Ui.Portrait
                 case PortraitDockLocation.Right:
                     position.y -= portraitIndex * (_portraitSize.y + _currentDockConfiguration.SpacingBetweenPortraits);
                     break;
+                case PortraitDockLocation.Top:
                 case PortraitDockLocation.Bottom:
                     position.x += portraitIndex * (_portraitSize.x + _currentDockConfiguration.SpacingBetweenPortraits);
                     break;

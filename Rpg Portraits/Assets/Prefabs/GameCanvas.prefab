@@ -32,11 +32,11 @@ RectTransform:
   m_Father: {fileID: 7079919294839715054}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -100}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &4556575905398234150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,9 +49,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb85344a9873ad444b2b7a3d09de18bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetFromLeft: 20
-  spacingOffset: 5
+  dockLocation: 2
+  portraitPrefab: {fileID: 611916816444228095, guid: d1eed256a3de9244da2188cbdadbcb68, type: 3}
   portraitsListing: {fileID: 11400000, guid: 6c2ba7035f92089459ddb9160bb08f1f, type: 2}
+  DockConfigurationListing: {fileID: 11400000, guid: 48351075c4a350a43bf54ed8e9150bbe, type: 2}
 --- !u!1 &4907664789787371688
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,9 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe148d418df4464d9c8a10926026109a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portraitPrefab: {fileID: 611916816444228095, guid: d1eed256a3de9244da2188cbdadbcb68, type: 3}
-  content: {fileID: 393837774}
-  portraitsListing: {fileID: 11400000, guid: 6c2ba7035f92089459ddb9160bb08f1f, type: 2}
 --- !u!1 &7413212341053094430
 GameObject:
   m_ObjectHideFlags: 0

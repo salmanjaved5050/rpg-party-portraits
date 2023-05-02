@@ -16,13 +16,13 @@ namespace RpgPortraits.Utility
     {
         public PortraitDockLocation PortraitDockLocation;
         
-        [Tooltip("Horizontal offset applied relative to anchor.")]
+        [Tooltip("Horizontal offset applied to portraits panel gameobject relative to anchor.")]
         public float HorizontalDockOffset;
         
-        [Tooltip("Vertical offset applied relative to anchor.")]
+        [Tooltip("Vertical offset applied to portraits panel gameobject relative to anchor.")]
         public float VerticalDockOffset;
         
-        [Tooltip("Spacing between consecutive portraits. In case of left/right docing this will be applied vertically and for bottom, horzintally.")]
+        [Tooltip("Spacing between consecutive portraits. In case of left/right docking this will be applied vertically and for top/bottom, horzintally.")]
         public float SpacingBetweenPortraits;
 
     }
@@ -31,6 +31,7 @@ namespace RpgPortraits.Utility
     {
         Left,
         Right,
+        Top,
         Bottom
     }
 }
