@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace RpgPortraits.Ui
 {
-    [Serializable]
-    public class CharacterPortrait
+    [CreateAssetMenu(fileName = "CharacterPortrait",menuName = "RpgPortraits/CharacterPortrait")]
+    public class CharacterPortrait : ScriptableObject
     {
         public Sprite Sprite;
     }

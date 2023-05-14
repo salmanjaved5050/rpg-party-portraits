@@ -380,6 +380,26 @@ PrefabInstance:
       propertyPath: dockLocation
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4556575905398234150, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}
+      propertyPath: characterPortraits.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556575905398234150, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}
+      propertyPath: characterPortraits.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: b8db5364c16d5f34887573b695e3dc03, type: 2}
+    - target: {fileID: 4556575905398234150, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}
+      propertyPath: characterPortraits.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4314e685f7977c742b59f3bc04b7b457, type: 2}
+    - target: {fileID: 4556575905398234150, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}
+      propertyPath: characterPortraits.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 69d1005ceee529646be262c2d212ed5d, type: 2}
+    - target: {fileID: 4556575905398234150, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}
+      propertyPath: characterPortraits.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8e054a55b8b948a41aa8c4eaf68c971d, type: 2}
     - target: {fileID: 7413212341053094426, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}
       propertyPath: m_Pivot.x
       value: 0

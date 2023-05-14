@@ -11,9 +11,9 @@ namespace RpgPortraits.Ui.Portrait
         private PortraitDockLocation dockLocation;
 
         [SerializeField] private GameObject portraitPrefab;
-        [SerializeField] private PortraitListing portraitsListing;
+        [SerializeField] private List<CharacterPortrait> characterPortraits;
         [SerializeField] private DockConfigurationListing DockConfigurationListing;
-
+    
         private List<DraggablePortrait> _portraits;
         private Vector2 _portraitSize;
         private PortraitDockConfiguration _currentDockConfiguration;
@@ -74,7 +74,7 @@ namespace RpgPortraits.Ui.Portrait
 
         private void CreatePortraits()
         {
-            if (portraitsListing == null)
+            if (characterPortraits == null)
             {
                 Debug.LogError("Portraits Listing Required!");
                 return;
@@ -99,7 +99,7 @@ namespace RpgPortraits.Ui.Portrait
             portraitRectTransform.position = portraitPosition;
 
             DraggablePortrait draggablePortrait = portraitObject.GetComponent<DraggablePortrait>();
-            draggablePortrait.Init(portraitsListing.CharacterPortraits[portraitIndex]
+            draggablePortrait.Init(characterPortraits[portraitIndex]
                 .Sprite, portraitPosition);
             _portraits.Add(draggablePortrait);
         }
