@@ -18,8 +18,11 @@ namespace RpgPortraits.Ui.Portrait
         private Vector2 _portraitSize;
         private PortraitDockConfiguration _currentDockConfiguration;
         private RectTransform _rectTransform;
+        private Vector2 _dragLimitX;
+        private Vector2 _dragLimitY;
 
-        private const int MAX_PORTRAITS_COUNT = 4;
+        private const int DRAG_X_LIMIT = 15;
+        private const int DRAG_Y_LIMIT = 15;
 
         private void Awake()
         {
@@ -103,9 +106,11 @@ namespace RpgPortraits.Ui.Portrait
 
             portraitRectTransform.position = portraitPosition;
 
+            CalculateDragLimits();
+
             DraggablePortrait draggablePortrait = portraitObject.GetComponent<DraggablePortrait>();
             draggablePortrait.Init(characterPortraits[portraitIndex]
-                .Sprite, portraitPosition);
+                .Sprite, portraitPosition, _dragLimitX, _dragLimitY);
             _portraits.Add(draggablePortrait);
         }
 
@@ -127,6 +132,25 @@ namespace RpgPortraits.Ui.Portrait
             }
 
             return position;
+        }
+
+        private void CalculateDragLimits()
+        {
+            Rect rect = portraitPrefab.GetComponent<RectTransform>()
+                .rect;
+            switch (dockLocation)
+            {
+                case PortraitDockLocation.Left:
+                case PortraitDockLocation.Right:
+                    _dragLimitX = new Vector2(rect.center.x - DRAG_X_LIMIT, rect.center.x + DRAG_X_LIMIT);
+                    break;
+                case PortraitDockLocation.Top:
+                case PortraitDockLocation.Bottom:
+                    _dragLimitY = new Vector2(rect.center.y - DRAG_Y_LIMIT, rect.center.y + DRAG_Y_LIMIT);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
     }
 }

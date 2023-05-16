@@ -378,7 +378,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4556575905398234150, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}
       propertyPath: dockLocation
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4556575905398234150, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}
       propertyPath: characterPortraits.Array.size
