@@ -13,7 +13,7 @@ namespace RpgPortraits.Ui.Portrait
         [SerializeField] private GameObject portraitPrefab;
         [SerializeField] private List<CharacterPortrait> characterPortraits;
         [SerializeField] private DockConfigurationListing DockConfigurationListing;
-    
+
         private List<DraggablePortrait> _portraits;
         private Vector2 _portraitSize;
         private PortraitDockConfiguration _currentDockConfiguration;
@@ -76,18 +76,23 @@ namespace RpgPortraits.Ui.Portrait
         {
             if (characterPortraits == null)
             {
-                Debug.LogError("Portraits Listing Required!");
+                Debug.LogError("Character Portraits Required!");
                 return;
             }
 
             // initialize max 4 portraits even if there are more in the list
-            for (int i = 0; i < MAX_PORTRAITS_COUNT; i++)
+            for (int i = 0; i < characterPortraits.Count; i++)
             {
-                GameObject portraitObject = Instantiate(portraitPrefab.gameObject, transform);
-                portraitObject.name = (i + 1).ToString();
-
-                SetupPortraitsAndAdjustPositions(portraitObject, i);
+                AddPortraitToPanel(characterPortraits[i], i);
             }
+        }
+
+        private void AddPortraitToPanel(CharacterPortrait characterPortrait, int index)
+        {
+            GameObject portraitObject = Instantiate(portraitPrefab.gameObject, transform);
+            portraitObject.name = characterPortrait.name;
+
+            SetupPortraitsAndAdjustPositions(portraitObject, index);
         }
 
         private void SetupPortraitsAndAdjustPositions(GameObject portraitObject, int portraitIndex)
