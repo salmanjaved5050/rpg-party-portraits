@@ -24,7 +24,7 @@ namespace RpgPortraits.Ui.Utils
         {
             if (!DragEnabled)
                 return;
-
+            
             RectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
 
             Vector2 finalPos = RectTransform.anchoredPosition;

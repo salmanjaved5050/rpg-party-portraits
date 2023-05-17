@@ -95,10 +95,14 @@ namespace RpgPortraits.Ui.Portrait
             GameObject portraitObject = Instantiate(portraitPrefab.gameObject, transform);
             portraitObject.name = characterPortrait.name;
 
-            SetupPortraitsAndAdjustPositions(portraitObject, index);
+            DraggablePortrait portrait = SetupPortraitsAndAdjustPositions(portraitObject, index);
+            _portraits.Add(portrait);
+
+            CalculateDragLimitsForPortrait(index);
+            portrait.SetDragLimitsAndEnableDrag(_dragLimitX, _dragLimitY);
         }
 
-        private void SetupPortraitsAndAdjustPositions(GameObject portraitObject, int portraitIndex)
+        private DraggablePortrait SetupPortraitsAndAdjustPositions(GameObject portraitObject, int portraitIndex)
         {
             RectTransform portraitRectTransform = portraitObject.GetComponent<RectTransform>();
 
@@ -106,12 +110,11 @@ namespace RpgPortraits.Ui.Portrait
 
             portraitRectTransform.position = portraitPosition;
 
-            CalculateDragLimits();
-
             DraggablePortrait draggablePortrait = portraitObject.GetComponent<DraggablePortrait>();
             draggablePortrait.Init(characterPortraits[portraitIndex]
-                .Sprite, portraitPosition, _dragLimitX, _dragLimitY);
-            _portraits.Add(draggablePortrait);
+                .Sprite, portraitPosition);
+
+            return draggablePortrait;
         }
 
         private Vector3 GetDockedPortraitPosition(RectTransform rectTransform, int portraitIndex)
@@ -134,19 +137,35 @@ namespace RpgPortraits.Ui.Portrait
             return position;
         }
 
-        private void CalculateDragLimits()
+        private void CalculateDragLimitsForPortrait(int index)
         {
-            Rect rect = portraitPrefab.GetComponent<RectTransform>()
-                .rect;
+            RectTransform rectTransform = _portraits[index]
+                .GetComponent<RectTransform>();
+            Rect rect = rectTransform.rect;
+            Vector2 anchoredPosition = rectTransform.anchoredPosition;
+
+            int portraitsCount = characterPortraits.Count;
+
             switch (dockLocation)
             {
                 case PortraitDockLocation.Left:
                 case PortraitDockLocation.Right:
                     _dragLimitX = new Vector2(rect.center.x - DRAG_X_LIMIT, rect.center.x + DRAG_X_LIMIT);
+
+                    float yMin = anchoredPosition.y + DRAG_Y_LIMIT + index * rect.size.y + index * _currentDockConfiguration.SpacingBetweenPortraits;
+                    float yMax = anchoredPosition.y - DRAG_Y_LIMIT - (portraitsCount - index) * rect.size.y -
+                        (portraitsCount - index - 1) * _currentDockConfiguration.SpacingBetweenPortraits + rect.size.y;
+                    _dragLimitY = new Vector2(yMin, yMax);
                     break;
                 case PortraitDockLocation.Top:
                 case PortraitDockLocation.Bottom:
                     _dragLimitY = new Vector2(rect.center.y - DRAG_Y_LIMIT, rect.center.y + DRAG_Y_LIMIT);
+
+                    float xMin = anchoredPosition.x - DRAG_Y_LIMIT - index * rect.size.x - index * _currentDockConfiguration.SpacingBetweenPortraits;
+                    float xMax = anchoredPosition.x + DRAG_Y_LIMIT + (portraitsCount - index) * rect.size.x +
+                        (portraitsCount - index - 1) * _currentDockConfiguration.SpacingBetweenPortraits - rect.size.x;
+
+                    _dragLimitX = new Vector2(xMin, xMax);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

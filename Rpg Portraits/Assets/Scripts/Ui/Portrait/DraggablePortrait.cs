@@ -18,13 +18,16 @@ namespace RpgPortraits.Ui.Portrait
 
         private Vector3 _fallBackPosition;
 
-        internal void Init(Sprite sprite, Vector3 positionOnUi, Vector2 dragLimitX, Vector2 dragLimitY)
+        internal void Init(Sprite sprite, Vector3 positionOnUi)
         {
             portraitImage.sprite = sprite;
             _fallBackPosition = positionOnUi;
+        }
+
+        internal void SetDragLimitsAndEnableDrag(Vector2 dragLimitX, Vector2 dragLimitY)
+        {
             DragLimitsX = dragLimitX;
-            DragLimitsY = dragLimitY;
-            Debug.Log(DragLimitsX);
+            DragLimitsY = dragLimitY.x < dragLimitY.y ? new Vector2(dragLimitY.x, dragLimitY.y) : new Vector2(dragLimitY.y, dragLimitY.x);
             DragEnabled = true;
         }
 
@@ -39,7 +42,7 @@ namespace RpgPortraits.Ui.Portrait
         {
             if (!DragEnabled)
                 return;
-            
+
             RectTransform.SetAsLastSibling();
             transform.DOScale(tweenScaleAmount, 0.1f);
         }
@@ -48,7 +51,7 @@ namespace RpgPortraits.Ui.Portrait
         {
             if (!DragEnabled)
                 return;
-            
+
             RectTransform.DOMove(_fallBackPosition, tweenBackToOriginalPositionDuration)
                 .SetEase(Ease.InOutQuad);
             transform.DOScale(Vector3.one, tweenBackToOriginalScaleDuration);
