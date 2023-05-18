@@ -38,6 +38,11 @@ namespace RpgPortraits.Ui.Portrait
                 .SetEase(Ease.InOutQuad);
         }
 
+        internal Vector3 GetFallbackPosition()
+        {
+            return _fallBackPosition;
+        }
+
         public void OnPointerDown(PointerEventData eventData)
         {
             if (!DragEnabled)
@@ -56,5 +61,6 @@ namespace RpgPortraits.Ui.Portrait
                 .SetEase(Ease.InOutQuad);
             transform.DOScale(Vector3.one, tweenBackToOriginalScaleDuration);
         }
+        
     }
 }
