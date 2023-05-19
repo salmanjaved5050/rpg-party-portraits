@@ -4,6 +4,12 @@ namespace RpgPortraits.Utility
 {
     public static class GameUtils 
     {
+        /// <summary>
+        /// Checks if two rect transforms overlap with each other.
+        /// </summary>
+        /// <param name="rectTransform1"></param>
+        /// <param name="rectTransform2"></param>
+        /// <returns></returns>
         public static bool Overlaps(RectTransform rectTransform1, RectTransform rectTransform2)
         {
             bool overlaps = false;

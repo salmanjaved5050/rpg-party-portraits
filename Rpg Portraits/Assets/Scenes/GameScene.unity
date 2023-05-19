@@ -189,7 +189,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -378,7 +378,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4556575905398234150, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}
       propertyPath: dockLocation
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4556575905398234150, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}
       propertyPath: characterPortraits.Array.size
@@ -410,7 +410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7413212341053094426, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7413212341053094426, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}
       propertyPath: m_AnchorMax.x

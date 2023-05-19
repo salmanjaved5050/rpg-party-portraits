@@ -64,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portraitImage: {fileID: 2265072800662813835}
   tweenBackToOriginalPositionDuration: 0.5
-  tweenScaleAmount: {x: 1.08, y: 1.08, z: 1}
+  tweenScaleAmount: {x: 1.05, y: 1.05, z: 1}
   tweenBackToOriginalScaleDuration: 0.1
 --- !u!1 &3170041627134912174
 GameObject:

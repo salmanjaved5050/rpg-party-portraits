@@ -112,7 +112,7 @@ namespace RpgPortraits.Ui.Portrait
 
             DraggablePortrait draggablePortrait = portraitObject.GetComponent<DraggablePortrait>();
             draggablePortrait.Init(characterPortraits[portraitIndex]
-                .Sprite, portraitPosition);
+                .Sprite, portraitPosition, portraitIndex, this);
 
             return draggablePortrait;
         }
@@ -170,6 +170,23 @@ namespace RpgPortraits.Ui.Portrait
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+
+        internal List<DraggablePortrait> GetPortraits()
+        {
+            return _portraits;
+        }
+
+        internal void SwitchPortraits(int firstPortraitIndex, int secondPortraitIndex)
+        {
+            DraggablePortrait firstPortrait = _portraits[firstPortraitIndex];
+            DraggablePortrait secondPortrait = _portraits[secondPortraitIndex];
+
+            Vector3 firstPortraitPosition = firstPortrait.GetFallBackPosition();
+            Vector3 secondPortraitPosition = secondPortrait.GetFallBackPosition();
+            
+            firstPortrait.SwitchToPosition(secondPortraitPosition);
+            secondPortrait.SwitchToPosition(firstPortraitPosition);
         }
     }
 }
