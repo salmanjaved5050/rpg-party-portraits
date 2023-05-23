@@ -68,11 +68,11 @@ namespace RpgPortraits.Ui.Portrait
                     throw new ArgumentOutOfRangeException();
             }
 
-            Vector3 dockPosition = _rectTransform.position;
+            Vector3 dockPosition = _rectTransform.anchoredPosition;
             dockPosition.x += _currentDockConfiguration.HorizontalDockOffset;
             dockPosition.y += _currentDockConfiguration.VerticalDockOffset;
 
-            _rectTransform.position = dockPosition;
+            _rectTransform.anchoredPosition = dockPosition;
         }
 
         private void CreatePortraits()
@@ -92,7 +92,7 @@ namespace RpgPortraits.Ui.Portrait
 
         private void AddPortraitToPanel(CharacterPortrait characterPortrait, int index)
         {
-            GameObject portraitObject = Instantiate(portraitPrefab.gameObject, transform);
+            GameObject portraitObject = Instantiate(portraitPrefab.gameObject, _rectTransform);
             portraitObject.name = characterPortrait.name;
 
             DraggablePortrait portrait = SetupPortraitsAndAdjustPositions(portraitObject, index);
@@ -108,7 +108,7 @@ namespace RpgPortraits.Ui.Portrait
 
             Vector3 portraitPosition = GetDockedPortraitPosition(portraitRectTransform, portraitIndex);
 
-            portraitRectTransform.position = portraitPosition;
+            portraitRectTransform.anchoredPosition = portraitPosition;
 
             DraggablePortrait draggablePortrait = portraitObject.GetComponent<DraggablePortrait>();
             draggablePortrait.Init(characterPortraits[portraitIndex]
@@ -119,7 +119,7 @@ namespace RpgPortraits.Ui.Portrait
 
         private Vector3 GetDockedPortraitPosition(RectTransform rectTransform, int portraitIndex)
         {
-            Vector3 position = rectTransform.position;
+            Vector3 position = rectTransform.anchoredPosition;
             switch (dockLocation)
             {
                 case PortraitDockLocation.Left:
