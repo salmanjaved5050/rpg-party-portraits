@@ -123,6 +123,19 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &140772234 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 393837773, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}
+  m_PrefabInstance: {fileID: 7413212339684920894}
+  m_PrefabAsset: {fileID: 0}
+--- !u!222 &140772238
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140772234}
+  m_CullTransparentMesh: 1
 --- !u!1 &661694948
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +391,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4556575905398234150, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}
       propertyPath: dockLocation
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4556575905398234150, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}
       propertyPath: characterPortraits.Array.size
@@ -488,5 +501,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameCanvas
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7415960466450133279, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4d555f8e3c58c25478b88069ff46cbd2, type: 3}

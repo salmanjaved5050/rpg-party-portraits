@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using RpgPortraits.Utility;
@@ -37,6 +39,24 @@ namespace RpgPortraits.Ui.Portrait
             _dragEnabled = false;
         }
 
+        private IEnumerator LerpToPosition(float duration)
+        {
+            float elapsedTime = 0;
+            Vector3 startPosition = _rectTransform.anchoredPosition;
+            while (elapsedTime < duration)
+            {
+                _rectTransform.anchoredPosition = Vector3.Slerp(startPosition, _fallBackPosition, (elapsedTime / duration));
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+        }
+
+        private IEnumerator SwitchPosition()
+        {
+            yield return LerpToPosition(tweenBackToOriginalPositionDuration);
+            _dragEnabled = true;
+        }
+
         internal void Init(Sprite sprite, Vector3 positionOnUi, int portraitIndex, PortraitController portraitController)
         {
             portraitImage.sprite = sprite;
@@ -58,9 +78,7 @@ namespace RpgPortraits.Ui.Portrait
         {
             _fallBackPosition = position;
             transform.DOScale(Vector3.one, tweenBackToOriginalScaleDuration);
-            _rectTransform.DOMove(position, tweenBackToOriginalPositionDuration)
-                .SetEase(Ease.InOutQuad)
-                .OnComplete(() => { _dragEnabled = true; });
+            StartCoroutine(SwitchPosition());
         }
 
         internal Vector3 GetFallBackPosition()
@@ -82,8 +100,7 @@ namespace RpgPortraits.Ui.Portrait
             if (!_dragEnabled)
                 return;
 
-            _rectTransform.DOMove(_fallBackPosition, tweenBackToOriginalPositionDuration)
-                .SetEase(Ease.InOutQuad);
+            StartCoroutine(LerpToPosition(tweenBackToOriginalPositionDuration));
             transform.DOScale(Vector3.one, tweenBackToOriginalScaleDuration);
         }
 
