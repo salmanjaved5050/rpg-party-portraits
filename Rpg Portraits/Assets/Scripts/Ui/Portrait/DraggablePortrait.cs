@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -12,10 +11,7 @@ namespace RpgPortraits.Ui.Portrait
     public class DraggablePortrait : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
     {
         [SerializeField] private Image portraitImage;
-
-        [Tooltip("Tween duration when portrait gets back to initial position or switches to a new position.")] [SerializeField]
-        private float tweenBackToOriginalPositionDuration;
-
+        [SerializeField] private float tweenBackToOriginalPositionDuration;
         [SerializeField] private Vector3 tweenScaleAmount;
         [SerializeField] private float tweenBackToOriginalScaleDuration;
 

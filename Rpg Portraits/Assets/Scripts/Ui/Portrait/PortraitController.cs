@@ -150,8 +150,10 @@ namespace RpgPortraits.Ui.Portrait
             {
                 case PortraitDockLocation.Left:
                 case PortraitDockLocation.Right:
-                    _dragLimitX = new Vector2(rect.center.x - DRAG_X_LIMIT, rect.center.x + DRAG_X_LIMIT);
-
+                    // Can use this if some drag is required along x axis
+                    //_dragLimitX = new Vector2(rect.center.x - DRAG_X_LIMIT, rect.center.x + DRAG_X_LIMIT);
+                    _dragLimitX = Vector2.zero;
+                    
                     float yMin = anchoredPosition.y + DRAG_Y_LIMIT + index * rect.size.y + index * _currentDockConfiguration.SpacingBetweenPortraits;
                     float yMax = anchoredPosition.y - DRAG_Y_LIMIT - (portraitsCount - index) * rect.size.y -
                         (portraitsCount - index - 1) * _currentDockConfiguration.SpacingBetweenPortraits + rect.size.y;
@@ -159,8 +161,11 @@ namespace RpgPortraits.Ui.Portrait
                     break;
                 case PortraitDockLocation.Top:
                 case PortraitDockLocation.Bottom:
-                    _dragLimitY = new Vector2(rect.center.y - DRAG_Y_LIMIT, rect.center.y + DRAG_Y_LIMIT);
-
+                    // Can use this if some drag is required along y axis
+                    //_dragLimitY = new Vector2(rect.center.y - DRAG_Y_LIMIT, rect.center.y + DRAG_Y_LIMIT);
+                    
+                    _dragLimitY = Vector2.zero;
+                    
                     float xMin = anchoredPosition.x - DRAG_Y_LIMIT - index * rect.size.x - index * _currentDockConfiguration.SpacingBetweenPortraits;
                     float xMax = anchoredPosition.x + DRAG_Y_LIMIT + (portraitsCount - index) * rect.size.x +
                         (portraitsCount - index - 1) * _currentDockConfiguration.SpacingBetweenPortraits - rect.size.x;
