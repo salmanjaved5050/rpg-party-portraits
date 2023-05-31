@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b2ee677f1e156499c34ef7d9791790, type: 3}
+  m_Name: DockConfigurationListing
+  m_EditorClassIdentifier: 
+  Configurations:
+  - PortraitDockLocation: 0
+    HorizontalDockOffset: 50
+    VerticalDockOffset: -130
+    SpacingBetweenPortraits: 12
+  - PortraitDockLocation: 1
+    HorizontalDockOffset: -50
+    VerticalDockOffset: -130
+    SpacingBetweenPortraits: 12
+  - PortraitDockLocation: 2
+    HorizontalDockOffset: -200
+    VerticalDockOffset: -70
+    SpacingBetweenPortraits: 12
+  - PortraitDockLocation: 3
+    HorizontalDockOffset: -200
+    VerticalDockOffset: 70
+    SpacingBetweenPortraits: 12
